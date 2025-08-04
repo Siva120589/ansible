@@ -4,8 +4,6 @@
   connection: local
   gather_facts: False
   tags: provisioning
-  become: yes
-  become_user: root
 
   pre_tasks:
     - name: Gather facts
@@ -16,12 +14,13 @@
         msg: "Using Python {{ ansible_python_version }}"
 
     - name: Install dependencies
-      shell: apt-get install python3-boto -y
+      shell: "/usr/bin/python3.12.3 -m pip install {{ item }}"
       loop:
         - boto3
         - botocore
 
   vars:
+    ansible_python_interpreter: /usr/bin/python3.12.3
     keypair: Mumbai
     instance_type: t2.micro
     image_id: ami-0f5ee92e2d63afc18
