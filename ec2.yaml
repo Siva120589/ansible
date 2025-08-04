@@ -14,7 +14,7 @@
         msg: "Using Python {{ ansible_python_version }}"
 
     - name: Install dependencies
-      shell: apt-get install python3-boto -y
+      shell: sudo apt-get install python3-boto -y
       loop:
         - boto3
         - botocore
