@@ -14,7 +14,7 @@
         msg: "Using Python {{ ansible_python_version }}"
 
     - name: Install dependencies
-      shell: "/usr/bin/python3.12 -m pip install {{ item }}"
+      shell: "/usr/bin/pip3 install {{ item }}"
       loop:
         - boto3
         - botocore
