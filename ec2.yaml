@@ -14,16 +14,16 @@
         msg: "Using Python {{ ansible_python_version }}"
 
     - name: Install dependencies
-      shell: "/usr/bin/python3.12.3 -m pip install {{ item }}"
+      shell: "/usr/bin/python3.12 -m pip install {{ item }}"
       loop:
         - boto3
         - botocore
 
   vars:
-    ansible_python_interpreter: /usr/bin/python3.12.3
-    keypair: Mumbai
+    ansible_python_interpreter: /usr/bin/python3.12
+    keypair: devsec
     instance_type: t2.micro
-    image_id: ami-0f5ee92e2d63afc18
+    image_id: ami-0f918f7e67a3323f0
     wait: yes
     group: webserver
     count: 1
