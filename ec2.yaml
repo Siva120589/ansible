@@ -4,6 +4,8 @@
   connection: local
   gather_facts: False
   tags: provisioning
+  become: yes
+  become_user: root
 
   pre_tasks:
     - name: Gather facts
@@ -18,8 +20,6 @@
       loop:
         - boto3
         - botocore
-      become: yes
-      become_user: root
 
   vars:
     ansible_python_interpreter: /usr/bin/python3.12
