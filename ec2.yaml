@@ -14,10 +14,7 @@
         msg: "Using Python {{ ansible_python_version }}"
 
     - name: Install dependencies
-      ansible.builtin.pip:
-        name:
-          - boto3
-          - botocore
+      shell: apt-get install python3-boto -y
 
   vars:
     ansible_python_interpreter: /usr/bin/python3.12
