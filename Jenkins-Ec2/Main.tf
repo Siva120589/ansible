@@ -31,14 +31,14 @@ resource "aws_security_group" "Jenkins-sg" {
 
 
 resource "aws_instance" "web" {
-  ami                    = "ami-0f5ee92e2d63afc18"
+  ami                    = "ami-0f918f7e67a3323f0"
   instance_type          = "t2.medium"
-  key_name               = "Mumbai"
+  key_name               = "devsec"
   vpc_security_group_ids = [aws_security_group.Jenkins-sg.id]
   user_data              = templatefile("./install_jenkins.sh", {})
 
   tags = {
-    Name = "Jenkins-sonar"
+    Name = "Jenkins-Ansible"
   }
   root_block_device {
     volume_size = 8
